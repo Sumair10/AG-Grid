@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo, useCallback} from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback , memo} from 'react';
 import { render } from 'react-dom';
 import { AgGridReact } from 'ag-grid-react'; // the AG Grid React Component
 
@@ -6,22 +6,31 @@ import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
 import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 import 'ag-grid-enterprise'
 
-const MyRenderer = (params) => {
-  const style = {
-    marginLeft : 20
-  }
-  const imgStyle ={
-    width:40 ,
-     position :'absolute',
-     top : 0,
-     left :0
-  }
+// const MyRenderer = (params) => {
+//   const style = {
+//     marginLeft : 20
+//   }
+//   const imgStyle ={
+//     width:40 ,
+//      position :'absolute',
+//      top : 0,
+//      left :0
+//   }
+//   return (
+//       <span style={style}>
+//           <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" style={imgStyle} />
+//           {params.value}
+//       </span>
+//   );
+// }
+
+const MyComp =params =>{
+
+  const renderCountRef = useRef(1)
+
   return (
-      <span style={style}>
-          <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" style={imgStyle} />
-          {params.value}
-      </span>
-  );
+    <><b>({renderCountRef.current++})</b> {params.value}</>
+  )
 }
 
 
@@ -35,7 +44,7 @@ const AgGrid5 = () => {
  const [columnDefs, setColumnDefs] = useState([
   
   {field: 'athlete'},
-  {field: 'age' ,  cellRenderer : MyRenderer},
+  {field: 'age' },
   {field: 'country'},
   {field: 'year'},
   {field: 'date'},
@@ -51,6 +60,7 @@ const AgGrid5 = () => {
      sortable: true,
      filter : true,
      enableRowGroup : true,
+     cellRenderer : memo(MyComp)
    }));
 
  // Example of consuming Grid Event
