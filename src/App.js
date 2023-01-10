@@ -1,23 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import AgGrid from "./AgGrid/AgGrid";
+import AgGrid1 from "./AgGrid/AgGrid1";
+import AgGrid5 from "./AgGrid/AgGrid5";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <AgGrid5/>
     </div>
   );
 }
