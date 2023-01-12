@@ -126,7 +126,7 @@ const AgGrid6 = () => {
           rowData={rowData} // Row Data for Rows
           // columnDefs={columnDefs} // Column Defs for Columns
           // defaultColDef={defaultColDef} // Default Column Properties
-          popupParent={document.body}
+          // popupParent={document.body}
 
           //  animateRows={true} // Optional - set to 'true' to have rows animate when sorted
           //  rowSelection='multiple' // Options - allows click selection of rows
