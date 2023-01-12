@@ -124,7 +124,7 @@ const AgGrid6 = () => {
         <AgGridReact
           ref={gridRef} // Ref for accessing Grid's API
           rowData={rowData} // Row Data for Rows
-          columnDefs={columnDefs} // Column Defs for Columns
+          // columnDefs={columnDefs} // Column Defs for Columns
           // defaultColDef={defaultColDef} // Default Column Properties
           popupParent={document.body}
 
